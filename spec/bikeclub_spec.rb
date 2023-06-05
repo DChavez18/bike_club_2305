@@ -18,7 +18,7 @@ RSpec.describe BikeClub do
     it "can add a new biker to bikeclub" do
       biker = Biker.new("Kenny", 30)
       @bike_club_1.add_biker(biker)
-      expect(@bike_club_1.bikers).to eq(biker)
+      expect(@bike_club_1.bikers).to eq([biker])
     end
   end
 
