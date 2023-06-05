@@ -49,4 +49,14 @@ RSpec.describe Biker do
     end
   end
 
+  describe "#biker2 log" do
+    it "does not add the ride to the log if biker2 does not know terrain" do
+      @biker2.log_ride(ride1, 97.0)
+      @biker2.log_ride(ride2, 67.0)
+      expect(@biker2.rides).to eq({})
+    end
+  end
+
+
+
 end
