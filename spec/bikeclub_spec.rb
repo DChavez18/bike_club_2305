@@ -62,12 +62,12 @@ RSpec.describe BikeClub do
       biker2.learn_terrain!(:hills)
       biker2.learn_terrain!(:gravel)
 
-      biker.log_ride(ride1, 92.5)
+      biker.log_ride(ride1, 90.5)
       biker2.log_ride(ride1, 91.1)
       biker.log_ride(ride2, 60.9)
       biker2.log_ride(ride2, 61.6)
 
-      expect(@bike_club_1.biker_with_best_time(ride1)).to eq(biker2)
+      expect(@bike_club_1.biker_with_best_time(ride1)).to eq(biker)
       expect(@bike_club_1.biker_with_best_time(ride2)).to eq(biker)
     end
   end

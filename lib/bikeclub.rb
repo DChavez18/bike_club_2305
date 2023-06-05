@@ -25,4 +25,18 @@ class BikeClub
     end
     most_rides_biker
   end
+
+  def biker_with_best_time(ride)
+    biker_with_best_time = nil
+    best_time = nil
+
+    @bikers.each do |biker|
+      time = biker.personal_record(ride)
+      if time && (best_time.nil? || time < best_time)
+        biker_with_best_time = biker
+        best_time = time
+      end
+    end
+    biker_with_best_time
+  end
 end
