@@ -8,6 +8,7 @@ class Biker
     @max_distance = max_distance
     @rides = {}
     @acceptable_terrain = []
+    @rides_count = 0
   end
 
   def learn_terrain!(terrain)
@@ -27,5 +28,9 @@ class Biker
     return false unless @rides.key?(ride)
 
     @rides[ride].min
+  end
+
+  def rides_count
+    @rides.size
   end
 end

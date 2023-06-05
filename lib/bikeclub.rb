@@ -9,4 +9,5 @@ class BikeClub
   def add_biker(biker)
     @bikers << biker
   end
+
 end
