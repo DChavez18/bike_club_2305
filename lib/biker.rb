@@ -9,5 +9,9 @@ class Biker
     @rides = {}
     @acceptable_terrain = []
   end
-  
+
+  def learn_terrain!(terrain)
+    @acceptable_terrain << terrain unless @acceptable_terrain.include?(terrain)
+  end
+
 end
