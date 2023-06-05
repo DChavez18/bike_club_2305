@@ -16,7 +16,7 @@ class Ride
 
   def total_distance
     if @loop == true
-      total_distance = distance
+      distance
     else
       distance * 2
     end
