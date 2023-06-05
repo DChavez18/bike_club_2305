@@ -26,5 +26,27 @@ RSpec.describe Biker do
       @biker.learn_terrain!(:hills)
       expect(@biker.acceptable_terrain).to eq([:gravel, :hills])
     end
+  end
+
+  describe "#biker logs rides" do
+    it "can log rides and store them in a hash" do
+      @biker.learn_terrain!(:gravel)
+      @biker.learn_terrain!(:hills)
+      @biker.log_ride(ride1, 92.5)
+      @biker.log_ride(ride1, 91.1)
+      @biker.log_ride(ride2, 60.9)
+      @biker.log_ride(ride2, 61.6)
+      expect(@biker.rides).to eq(0)
+    end
+  end
+
+  describe "#personal_record" do
+    it "returns the lowest time for a ride" do
+      @biker.learn_terrain!(:gravel)
+      @biker.log_ride(ride2, 60.9)
+      @biker.log_ride(ride2, 61.6)
+      expect(@biker.personal_record(ride2)).to eq(60.9)
+    end
+  end
 
 end
