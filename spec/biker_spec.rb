@@ -57,6 +57,15 @@ RSpec.describe Biker do
     end
   end
 
+  describe "#biker2 ride  max distance" do
+    it "does not add ride time if biker can't ride the distance" do
+      @biker2.learn_terrain!(:hills)
+      @biker2.log_ride(ride1, 95.0)
+      @biker2.log_ride(ride2, 65.0)
+      expect(@biker2.rides).to eq({ride2 => 65.0})
+    end
+  end
+
 
 
 end
