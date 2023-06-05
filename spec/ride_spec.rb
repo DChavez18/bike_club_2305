@@ -15,10 +15,10 @@ RSpec.describe Ride do
 
   describe "#ride1" do
     it "has attributes and can calculate total distance" do
-    expext(@ride1.name).to eq("Walnut Creek Trail")
-    expext(@ride1.distance).to eq(10.7)
-    expext(@ride1.terrain).to eq(:hills)
-    expext(@ride1.loop?).to eq(false)
+    expect(@ride1.name).to eq("Walnut Creek Trail")
+    expect(@ride1.distance).to eq(10.7)
+    expect(@ride1.terrain).to eq(:hills)
+    expect(@ride1.loop?).to eq(false)
     expect(@ride1.total_distance).to eq(21.4)
     end
   end
