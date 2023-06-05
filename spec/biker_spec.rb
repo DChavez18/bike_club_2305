@@ -66,6 +66,17 @@ RSpec.describe Biker do
     end
   end
 
+  describe "#biker2 personal record" do
+    it "returns lowest time recorded and returns false if biker hasn't done the ride" do
+      @biker2.learn_terrain!(:hills)
+      @biker2.log_ride(ride1, 95.0)
+      @biker2.log_ride(ride2, 65.0)
+      expect(@biker2.personal_record(ride2)).to eq(65.0)
+      expect(@biker2.personal_record(ride1)).to eq(false)
+
+    end
+  end
+
 
 
 end
