@@ -15,10 +15,16 @@ class Biker
   end
   
   def log_ride(ride, time)
-    if acceptable_terrain.include?(ride.terrain) && time <= max_distance
-      @rides[ride] ||= []
-      @rides[ride] << time
-    end
+    return unless acceptable_terrain.include?(ride.terrain) && ride.total_distance <= max_distance
+
+    @rides[ride] ||= []
+    @rides[ride] << time
+  end
+
+  def personal_record(ride)
+    return false unless @rides.key?(ride)
+
+    @rides[ride].min
   end
 
 end

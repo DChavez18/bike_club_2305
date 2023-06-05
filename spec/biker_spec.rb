@@ -29,7 +29,7 @@ RSpec.describe Biker do
   end
 
   describe "#biker logs rides" do
-    xit "can log rides and store them in a hash" do
+    it "can log rides and store them in a hash" do
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
       ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       @biker.learn_terrain!(:gravel)
@@ -49,12 +49,14 @@ RSpec.describe Biker do
       @biker.learn_terrain!(:gravel)
       @biker.log_ride(@ride2, 60.9)
       @biker.log_ride(@ride2, 61.6)
-      expect(@biker.personal_record(ride2)).to eq(60.9)
+      expect(@biker.personal_record(@ride2)).to eq(60.9)
     end
   end
 
   describe "#biker2 log" do
-    xit "does not add the ride to the log if biker2 does not know terrain" do
+    it "does not add the ride to the log if biker2 does not know terrain" do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       @biker2.log_ride(@ride1, 97.0)
       @biker2.log_ride(@ride2, 67.0)
       expect(@biker2.rides).to eq({})
@@ -62,10 +64,10 @@ RSpec.describe Biker do
   end
 
   describe "#biker2 ride  max distance" do
-    xit "does not add ride time if biker can't ride the distance" do
+    it "does not add ride time if biker can't ride the distance" do
       @biker2.learn_terrain!(:hills)
-      @biker2.log_ride(@ride1, 95.0)
-      @biker2.log_ride(@ride2, 65.0)
+      @biker2.log_ride(ride1, 95.0)
+      @biker2.log_ride(ride2, 65.0)
       expect(@biker2.rides).to eq({ride2 => 65.0})
     end
   end
