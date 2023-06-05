@@ -23,7 +23,7 @@ class Biker
 
   def personal_record(ride)
     return false unless @rides.key?(ride)
-
+    
     @rides[ride].min
   end
 

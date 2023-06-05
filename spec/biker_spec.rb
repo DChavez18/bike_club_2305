@@ -65,6 +65,8 @@ RSpec.describe Biker do
 
   describe "#biker2 ride  max distance" do
     it "does not add ride time if biker can't ride the distance" do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       @biker2.learn_terrain!(:hills)
       @biker2.log_ride(ride1, 95.0)
       @biker2.log_ride(ride2, 65.0)
@@ -73,8 +75,11 @@ RSpec.describe Biker do
   end
 
   describe "#biker2 personal record" do
-    xit "returns lowest time recorded and returns false if biker hasn't done the ride" do
+    it "returns lowest time recorded and returns false if biker hasn't done the ride" do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
       @biker2.learn_terrain!(:hills)
+      @biker2.learn_terrain!(:gravel)
       @biker2.log_ride(ride1, 95.0)
       @biker2.log_ride(ride2, 65.0)
       expect(@biker2.personal_record(ride2)).to eq(65.0)
